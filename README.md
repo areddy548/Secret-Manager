@@ -2,14 +2,17 @@
 
 Types
 
-1. Arbitary : An arbitrary secret is a type of application secret that can be used to hold structured or unstructured data, such as a key, configuration file, or any other piece of sensitive information. After you create the secret, you can use it to connect your application to a protected resource, such as a third-party app or database. Your secret is stored securely in your dedicated Secrets Manager service instance, where you can centrally manage its lifecycle.
+## 1. Arbitary :
+   An arbitrary secret is a type of application secret that can be used to hold structured or unstructured data, such as a key, configuration file, or any other piece of sensitive information. After you create the secret, you can use it to connect your application to a protected resource, such as a third-party app or database. Your secret is stored securely in your dedicated Secrets Manager service instance, where you can centrally manage its lifecycle.
 
-      Rotation Policy : For arbitrary secrets we have to add the Value for rotation and the time for rotation like 30, 60 or 90 days. Auto rotation is now allowed for Arbitary Secrets.
+   Rotation Policy : For arbitrary secrets we have to add the Value for rotation and the time for rotation like 30, 60 or 90 days. Auto rotation is now allowed for Arbitary Secrets.
 
-      Inputs Required : Secret Name - API_KEY
-                         Value - <apikey value> 
+   Inputs Required : 
+            
+              Secret Name - API_KEY
+              Value - *apikey value*
                          
-      Response we get when we fetch secret from Secret Manager : 
+   Response we get when we fetch secret from Secret Manager : 
               
             
             
@@ -37,17 +40,20 @@ Types
            
             
 
-2. Username_Password : User credentials consist of username and password values that you can use to log in to or access an external service or application. Your secret is stored securely in your dedicated Secrets Manager service instance, where you can centrally manage its lifecycle, control the secret's lifespan by setting an expiration date, automatic rotation policies, and more.
+## 2. Username_Password : 
+User credentials consist of username and password values that you can use to log in to or access an external service or application. Your secret is stored securely in your dedicated Secrets Manager service instance, where you can centrally manage its lifecycle, control the secret's lifespan by setting an expiration date, automatic rotation policies, and more.
       
-      Rotation Policy : Currently, you can enable automatic rotation only for the user credentials (username_password) secret type. For user credentials we can add or just click on Rotate secret, it will generate a 32-character password
+Rotation Policy : Currently, you can enable automatic rotation only for the user credentials (username_password) secret type. For user credentials we can add or just click on Rotate secret, it will generate a 32-character password
 
-      Inputs Required : Secret Name - myappCredentials
-                        Username - <username>
-                        Password - <password>
+Inputs Required : 
+      
+                  Secret Name - myappCredentials
+                  Username - <username>
+                  Password - <password>
   
-      Response we get when we fetch secret from Secret Manager :
+Response we get when we fetch secret from Secret Manager :
   
-             "created_by":"IBMid-550003YYB7",
+            "created_by":"IBMid-550003YYB7",
             "creation_date":"2021-06-08T09:08:53Z",
             "crn":"crn:v1:bluemix:public:secrets-manager:us-south:a/:692ce041-9672-431c-94a5-\:secret:]\-2d82-084e-55c9-",
             "id":"--084e-55c9-9954516487dd",
@@ -71,13 +77,14 @@ Types
                 }
             ]
 
-3. IAM_Credentials : IAM credentials are dynamic secrets that you can use to access an IBM Cloud resource. A set of IAM credentials consists of a service ID and an API key that is generated each time that the protected resource is read or accessed. You can define a time-to-live (TTL) or a lease duration for your IAM credential at its creation so that you shorten the amount of time that the secret exists.
+## 3. IAM_Credentials : 
+IAM credentials are dynamic secrets that you can use to access an IBM Cloud resource. A set of IAM credentials consists of a service ID and an API key that is generated each time that the protected resource is read or accessed. You can define a time-to-live (TTL) or a lease duration for your IAM credential at its creation so that you shorten the amount of time that the secret exists.
 
-     Rotation Policy : IAM credentials are created dynamically on your behalf so that you don't have to manually rotate them
+Rotation Policy : IAM credentials are created dynamically on your behalf so that you don't have to manually rotate them
 
-     Inputs Required : Schematics Service Engine generates new API key everytime we try to fetch IAM credential secret
+Inputs Required : Schematics Service Engine generates new API key everytime we try to fetch IAM credential secret
   
-     Response we get when we fetch secret from Secret Manager :
+Response we get when we fetch secret from Secret Manager :
   
           "access_groups":[
           "AccessGroupId--4fac--9c75-d2527463ac46"
