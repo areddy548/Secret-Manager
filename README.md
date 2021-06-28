@@ -106,3 +106,8 @@ Response we get when we fetch secret from Secret Manager :
           "state":1,
           "state_description":"Active",
           "ttl":259200
+          
+ Set a lease duration or time-to-live (TTL) for the secret:  By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
+
+(Optional) Determine whether IAM credentials can be reused for your secret: By default, IAM credentials are generated and deleted each time that a secret is read or accessed. By setting Reuse IAM credentials to On, your secret retains its current service ID and API key values, so that you can reuse the same credentials on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
+          
